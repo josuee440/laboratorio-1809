@@ -1,0 +1,18 @@
+<mat-toolbar>
+  <span class="titulo">Laboratorio</span>
+  <a mat-button routerLink="/">Inicio</a>
+  <a mat-button routerLink="/estudiantes">Estudiantes</a>
+  <span class="espacio"></span>
+
+  @if (auth.autenticado()) {
+    <span class="rol"><mat-icon>person</mat-icon> {{ auth.rolNombre() }}</span>
+    <button mat-button (click)="salir()"><mat-icon>logout</mat-icon> Salir</button>
+  } @else {
+    <a mat-button routerLink="/login">Iniciar sesión</a>
+    <a mat-button routerLink="/registro">Registrarse</a>
+  }
+</mat-toolbar>
+
+<main class="contenido">
+  <router-outlet />
+</main>
